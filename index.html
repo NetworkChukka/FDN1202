@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDN1202: Introduction to Computers - Study Guide & Exam Prep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
+            --grey-color: #64748b;
+            --border-color: #cbd5e1;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding-top: 70px;
+            scroll-behavior: smooth;
+        }
+
+        /* Sticky Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        nav li {
+            padding: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--dark-color);
+            color: #ffffff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--border-color);
+            font-size: 1.1rem;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: var(--dark-color);
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #334155;
+        }
+
+        /* Bullet Points */
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background-color: #eff6ff;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-color);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-color);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Quiz Styling */
+        .quiz-container {
+            margin-top: 30px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--dark-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .question-block {
+            background: var(--light-color);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .options-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:hover {
+            border-color: var(--secondary-color);
+            background-color: #f0fdf4;
+        }
+
+        .option-item.correct {
+            background-color: #d1fae5 !important;
+            border-color: var(--success-color) !important;
+            color: #065f46;
+            font-weight: 500;
+        }
+
+        .option-item.incorrect {
+            background-color: #fee2e2 !important;
+            border-color: var(--error-color) !important;
+            color: #991b1b;
+        }
+
+        .option-item.disabled {
+            pointer-events: none;
+        }
+
+        .feedback-text {
+            margin-top: 10px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .feedback-text.correct {
+            color: var(--success-color);
+            display: block;
+        }
+
+        .feedback-text.incorrect {
+            color: var(--error-color);
+            display: block;
+        }
+
+        #score-banner {
+            display: none;
+            background: var(--success-color);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 30px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            body { padding-top: 60px; }
+            header h1 { font-size: 1.8rem; }
+            section { padding: 20px; }
+            nav ul { padding: 10px; }
+            nav li { padding: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#evolution">Evolution</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#hardware">Hardware & Storage</a></li>
+            <li><a href="#encoding">Number Systems</a></li>
+            <li><a href="#quiz">100-MCQ Quiz</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>FDN1202: Introduction to Computers</h1>
+            <p>Comprehensive Single-File Examination Study Guide & Self-Assessment Portal</p>
+        </header>
+
+        <section id="intro">
+            <h2>1. Introduction & Characteristics of Computers</h2>
+            <p>A <strong>computer</strong> is an advanced electronic device that takes raw data as input from the user, processes it under the control of a set of instructions (called a program), produces a result (output), and saves it for future use.</p>
+            
+            <div class="highlight-box">
+                <strong>Core Informational Processing Cycle:</strong> Input &rarr; Process &rarr; Output &rarr; Storage
+            </div>
+
+            <h3>Key Structural Characteristics</h3>
+            <ul>
+                <li><strong>Speed:</strong> Computers process data at incredibly high rates, performing millions of instructions per second (MIPS) or billions of operations per second (flops).</li>
+                <li><strong>Accuracy:</strong> Computations are highly precise and completely error-free, provided the input data and program rules are correct. Errors typically arise from bad initial data, known as <strong>GIGO (Garbage In, Garbage Out)</strong>.</li>
+                <li><strong>Diligence:</strong> Unlike humans, a computer does not suffer from physical tiredness, lack of concentration, or monotony. It can execute millions of operations identically for days.</li>
+                <li><strong>Storage:</strong> Computers feature a massive built-in memory capacity alongside secondary options to store vast collections of records, files, images, and applications securely over time.</li>
+                <li><strong>Versatility:</strong> Refers to the machine's capacity to perform entirely diverse applications sequentially or concurrently—moving from statistical calculations to media rendering or real-time simulation effortlessly.</li>
+                <li><strong>Automation:</strong> Once a programmatic job task is successfully booted or assigned, the machine performs data operations cleanly without requiring direct manual structural interaction step-by-step.</li>
+            </ul>
+        </section>
+
+        <section id="evolution">
+            <h2>2. Evolution & Computing Generations</h2>
+            <p>The journey of modern computing ranges from ancient mathematical mechanical markers to high-performance parallel processing networks.</p>
+            <ul>
+                <li><strong>Abacus:</strong> Developed thousands of years ago; the oldest mechanical system intended for fundamental arithmetic additions and subtractions.</li>
+                <li><strong>Napier's Bones:</strong> Created by John Napier; calculating rods constructed to accelerate complex long multiplication and division equations.</li>
+                <li><strong>Pascaline:</strong> Constructed by Blaise Pascal; the earliest operational gear-driven functional wheel machine built to handle basic mathematical values.</li>
+                <li><strong>Analytical Engine:</strong> Designed by Charles Babbage in the 19th century; it established the core architectural blueprint featuring an arithmetic engine, basic loop conditional configurations, and integrated memory. This layout earned Babbage the title <strong>"Father of the Computer"</strong>.</li>
+                <li><strong>UNIVAC:</strong> The Universal Automatic Computer; the first successful commercial digital unit sold to manage industrial data workflows.</li>
+            </ul>
+
+            <h3>The Five Computing Generations</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Generation</th>
+                            <th>Primary Technology</th>
+                            <th>Memory Medium</th>
+                            <th>Key Characteristics & Limitations</th>
+                            <th>Historical Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1st Gen (1940-1956)</td>
+                            <td>Vacuum Tubes</td>
+                            <td>Magnetic Drums</td>
+                            <td>Massive size, heavy power draw, generates immense heat, uses machine language code.</td>
+                            <td>ENIAC, EDVAC, UNIVAC I</td>
+                        </tr>
+                        <tr>
+                            <td>2nd Gen (1956-1963)</td>
+                            <td>Transistors</td>
+                            <td>Magnetic Core Tech</td>
+                            <td>Smaller, faster operational runtimes, lower power drain, utilizes assembly language formats.</td>
+                            <td>IBM 7094, CDC 1604</td>
+                        </tr>
+                        <tr>
+                            <td>3rd Gen (1964-1971)</td>
+                            <td>Integrated Circuits (ICs)</td>
+                            <td>Semiconductor RAM</td>
+                            <td>Introduction of keyboards, early monitor interfaces, operating systems run multiple jobs.</td>
+                            <td>IBM 360, PDP-8</td>
+                        </tr>
+                        <tr>
+                            <td>4th Gen (1971-Present)</td>
+                            <td>Microprocessors (VLSI)</td>
+                            <td>High-speed VLSI semiconductor</td>
+                            <td>Extremely compact, highly efficient personal computing (PCs), emergence of internet protocols.</td>
+                            <td>Intel 4004 based PCs, Apple II</td>
+                        </tr>
+                        <tr>
+                            <td>5th Gen (Current/Future)</td>
+                            <td>Ultra Large Scale (ULSI) / AI</td>
+                            <td>Advanced Optical / Quantum</td>
+                            <td>Parallel computing nodes, responsive speech recognition, natural neural networks.</td>
+                            <td>Supercomputers, AI Assistants</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="categories">
+            <h2>3. Computer Categories</h2>
+            <p>Computers are categorized by their performance, structural scale, supportable user volume, and target tasks.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Physical Size</th>
+                            <th>Simultaneous Active Users</th>
+                            <th>Processing Power & Purpose</th>
+                            <th>Real-World Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Microcomputers</strong></td>
+                            <td>Compact (Fits on desktops/laptops)</td>
+                            <td>Single User at a time</td>
+                            <td>Low to Moderate; optimized for everyday consumer applications and business workflows.</td>
+                            <td>Laptops, PCs, Smartphones</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Minicomputers</strong></td>
+                            <td>Medium (Cabinet scale)</td>
+                            <td>Multi-user (10 to several hundred)</td>
+                            <td>Moderate to High; tailored to handle departmental network demands and mid-scale storage systems.</td>
+                            <td>AS/400, VAX systems</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mainframe Computers</strong></td>
+                            <td>Large (Requires dedicated rooms)</td>
+                            <td>Thousands of simultaneous users</td>
+                            <td>Massive computational volume; engineered for secure, continuous bulk transaction processing.</td>
+                            <td>IBM zSeries, Hitachi Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Supercomputers</strong></td>
+                            <td>Extremely Large (Interconnected arrays)</td>
+                            <td>Specialized research teams</td>
+                            <td>Maximum global computing speed; calculates complex floating-point mathematical structures.</td>
+                            <td>Cray XC, Fugaku, Summit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="architecture">
+            <h2>4. Computer Architecture & Internal Processing</h2>
+            <p>Modern computational hardware operates on the foundational principles of the <strong>Von Neumann Architecture</strong>, which relies on a single shared memory space for both instructions and data.</p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>The CPU Components</h3>
+                    <ul>
+                        <li><strong>Control Unit (CU):</strong> The supervisor of the system. It fetches instructions from memory, decodes them, and directs the flow of signals to other components.</li>
+                        <li><strong>Arithmetic Logic Unit (ALU):</strong> The execution engine. It handles all basic math operations (addition, subtraction, multiplication) and logic checks (equal to, greater than).</li>
+                        <li><strong>Registers:</strong> Ultra-fast, internal storage locations inside the CPU. Examples include the Program Counter (PC) and the Instruction Register (IR).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>The System Bus Architecture</h3>
+                    <ul>
+                        <li><strong>Address Bus (Unidirectional):</strong> Transmits address locations from the CPU to memory, defining exactly where data needs to be read or written.</li>
+                        <li><strong>Data Bus (Bidirectional):</strong> Transfers the actual data bits between the processor, memory chips, and external devices.</li>
+                        <li><strong>Control Bus (Bidirectional):</strong> Carries command status signals (like Read, Write, and Interrupt signals) to keep everything in sync.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>The Instruction Cycle (Fetch-Decode-Execute):</strong>
+                <ol>
+                    <li><strong>Fetch:</strong> The Control Unit retrieves the next instruction from the memory location pointed to by the Program Counter.</li>
+                    <li><strong>Decode:</strong> The Control Unit interprets the fetched instruction to determine what actions are required.</li>
+                    <li><strong>Execute:</strong> The ALU performs the calculations, or data is moved between registers and memory, carrying out the instruction.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="hardware">
+            <h2>5. Hardware, Storage Media & Interfaces</h2>
+            
+            <h3>Input & Output Hardware Ecosystem</h3>
+            <p><strong>Input Components:</strong> Keyboards, Mice, Optical Scanners, Barcode Readers, Joysticks, Microphones, and Digital Camera Sensors.</p>
+            <p><strong>Output Components:</strong> OLED/LCD Monitors, Laser Printers, Inkjet Plotters, Speakers, and Braille Display Devices.</p>
+
+            <h3>The Memory Hierarchy</h3>
+            <p>Memory is arranged hierarchically to balance speed, capacity, and cost. Faster memory costs more per bit and has less capacity, so it sits closer to the CPU.</p>
+            <ul>
+                <li><strong>Cache Memory:</strong> High-speed SRAM built directly onto or next to the processor chip. It acts as a buffer, storing frequently used data to prevent performance bottlenecks.</li>
+                <li><strong>Primary Memory (RAM/ROM):</strong> Directly accessible by the CPU over the system bus, allowing active apps to run smoothly.</li>
+                <li><strong>Secondary Storage:</strong> Non-volatile, high-capacity drives (like HDDs or SSDs) that preserve data when the system powers down.</li>
+            </ul>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>RAM Types (Volatile)</h3>
+                    <ul>
+                        <li><strong>SRAM (Static RAM):</strong> Uses flip-flops to retain data. It is ultra-fast, power-efficient, expensive, and used primarily for CPU caches.</li>
+                        <li><strong>DRAM (Dynamic RAM):</strong> Uses capacitors that must be constantly refreshed. It offers high density at a lower cost, making it ideal for main system memory.</li>
+                        <li><strong>SDRAM:</strong> Synchronizes its operations with the system clock for faster data handling.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>ROM Types (Non-Volatile)</h3>
+                    <ul>
+                        <li><strong>PROM:</strong> Programmable ROM that is manufactured blank and can be written to exactly once using a specialized device.</li>
+                        <li><strong>EPROM:</strong> Erasable PROM that can be wiped clean using strong ultraviolet light exposure and rewritten.</li>
+                        <li><strong>EEPROM:</strong> Electrically Erasable PROM that can be cleared and rewritten byte-by-byte using electrical signals. Used for modern BIOS/UEFI firmware.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Storage Performance Comparison</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Storage Feature</th>
+                            <th>Solid State Drives (SSD)</th>
+                            <th>Hard Disk Drives (HDD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mechanism</td>
+                            <td>Flash Memory Chips (Non-moving)</td>
+                            <td>Spinning Platters & Magnetic Heads</td>
+                        </tr>
+                        <tr>
+                            <td>Data Access Speed</td>
+                            <td>Very Fast (Up to 7000+ MB/s)</td>
+                            <td>Moderate (Typically 100-200 MB/s)</td>
+                        </tr>
+                        <tr>
+                            <td>Durability</td>
+                            <td>High shock resistance; no moving parts</td>
+                            <td>Vulnerable to drops and mechanical wear</td>
+                        </tr>
+                        <tr>
+                            <td>Power Consumption</td>
+                            <td>Low; quiet operation</td>
+                            <td>Higher; generates noise and heat</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Optical & Cloud Storage Solutions</h3>
+            <ul>
+                <li><strong>Compact Discs (CD):</strong> Uses a 780nm infrared laser; standard storage capacity is around 700 MB.</li>
+                <li><strong>Digital Versatile Discs (DVD):</strong> Uses a 650nm red laser with tighter data tracks, bumping capacity to 4.7 GB (single layer) or 8.5 GB (dual layer).</li>
+                <li><strong>Blu-ray Discs (BD):</strong> Uses a short-wavelength 405nm blue-violet laser, packing data tightly to store 25 GB to 50 GB.</li>
+                <li><strong>Cloud Storage:</strong> Off-site data storage hosted on remote server clusters. It allows you to access files from anywhere over the internet while keeping data safe with redundant backups.</li>
+            </ul>
+
+            <h3>Physical Connection Interfaces</h3>
+            <ul>
+                <li><strong>Legacy Interfaces:</strong> Includes Serial RS-232 ports for older mice, Parallel Centronics ports for vintage printers, and PS/2 connectors for older keyboards.</li>
+                <li><strong>Modern Universal Serial Bus (USB):</strong>
+                    <ul>
+                        <li>USB 2.0 (High Speed): Max speed of 480 Mbps.</li>
+                        <li>USB 3.0 / 3.1 Gen 1 (SuperSpeed): Max speed of 5 Gbps.</li>
+                        <li>USB 4: Built on the Thunderbolt protocol, capable of speeds up to 40 Gbps.</li>
+                        <li>USB Type-C: A reversible connector that supports multiple protocols, high-speed data transmission, and power delivery.</li>
+                    </ul>
+                </li>
+                <li><strong>High-Definition Multimedia Interface (HDMI):</strong> A compact interface that carries uncompressed digital audio and video to monitors and TVs.</li>
+                <li><strong>DisplayPort:</strong> A high-performance digital interface that supports high resolutions and refresh rates, featuring a secure locking connector.</li>
+                <li><strong>Thunderbolt (Intel/Apple):</strong> A high-speed hardware interface that combines PCIe and DisplayPort signals into one cable, delivering blistering data and power delivery speeds.</li>
+            </ul>
+        </section>
+
+        <section id="encoding">
+            <h2>6. Number Systems & Character Encoding Standards</h2>
+            <p>Computers process all types of information by representing data numerically through distinct number bases.</p>
+            
+            <h3>Base Radix Overview</h3>
+            <ul>
+                <li><strong>Decimal System:</strong> Base 10. Uses digits 0 through 9.</li>
+                <li><strong>Binary System:</strong> Base 2. Uses digits 0 and 1. The native language of computing hardware.</li>
+                <li><strong>Octal System:</strong> Base 8. Uses digits 0 through 7. Grouped in 3-bit binary segments.</li>
+                <li><strong>Hexadecimal System:</strong> Base 16. Uses digits 0–9 and letters A–F (where A=10, B=11, C=12, D=13, E=14, F=15). Grouped in 4-bit binary segments.</li>
+            </ul>
+
+            <h3>Binary Arithmetic Rules</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Binary Addition</h3>
+                    <ul>
+                        <li>0 + 0 = 0</li>
+                        <li>0 + 1 = 1</li>
+                        <li>1 + 0 = 1</li>
+                        <li>1 + 1 = 0 (with a carry-over of 1 to the next column)</li>
+                        <li>1 + 1 + 1 = 1 (with a carry-over of 1 to the next column)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Binary Subtraction (Using Direct Borrowing)</h3>
+                    <ul>
+                        <li>0 - 0 = 0</li>
+                        <li>1 - 0 = 1</li>
+                        <li>1 - 1 = 0</li>
+                        <li>0 - 1 = 1 (requires borrowing a 1 from the next column, turning the 0 into a 2 in decimal)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Character Encoding Specifications</h3>
+            <ul>
+                <li><strong>ASCII (American Standard Code for Information Interchange):</strong> A 7-bit encoding standard that maps 128 unique characters, covering basic English letters, numbers, and control codes. An extended 8-bit version expands this to 256 characters.</li>
+                <li><strong>EBCDIC (Extended Binary Coded Decimal Interchange Code):</strong> An 8-bit character encoding system created by IBM, used primarily on legacy mainframe systems.</li>
+                <li><strong>Unicode:</strong> A universal encoding standard designed to support all written languages. It can scale up to 32 bits per character (using formats like UTF-8, UTF-16, and UTF-32), allowing it to represent millions of unique characters, symbols, and emojis globally.</li>
+            </ul>
+        </section>
+
+        <section id="quiz">
+            <h2>7. Comprehensive Examination Self-Assessment</h2>
+            <p>Test your knowledge with these 100 multiple-choice questions covering the complete FDN1202 course material. Click on an option to get instant feedback.</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <span>Progressive Scoreboard</span>
+                    <span id="score-counter">Current Points: 0 / 100</span>
+                </div>
+
+                <div id="questions-wrapper">
+                    </div>
+
+                <div id="score-banner">
+                    Your Final Score is being calculated...
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Comprehensive 100 Question Dataset structured neatly across all syllabus segments
+        const questionsData = [
+            { q: "What are the four core components of the informational processing cycle?", o: ["Input, Process, Output, Storage", "Read, Write, Save, Delete", "Boot, Load, Run, Close", "Arithmetic, Logic, Register, Bus"], a: 0 },
+            { q: "Which of the following describes the computer's ability to work continuously without fatigue?", o: ["Speed", "Diligence", "Versatility", "Accuracy"], a: 1 },
+            { q: "What does the acronym GIGO stand for in computer science?", o: ["General Input General Output", "Garbage In Garbage Out", "Global Interface Global Operation", "Giga Instructions Giga Operations"], a: 1 },
+            { q: "Which characteristic refers to a computer's ability to perform entirely different tasks sequentially or at the same time?", o: ["Automation", "Diligence", "Versatility", "Reliability"], a: 2 },
+            { q: "The oldest known mechanical device used for basic arithmetic calculations is the:", o: ["Pascaline", "Abacus", "Slide Rule", "Analytical Engine"], a: 1 },
+            { q: "Who is universally recognized as the 'Father of the Computer'?", o: ["Alan Turing", "John von Neumann", "Charles Babbage", "Blaise Pascal"], a: 2 },
+            { q: "Which early calculation tool used manually-operated rods for multiplication and division?", o: ["Napier's Bones", "Abacus", "Leibniz Calculator", "Jacquard Loom"], a: 0 },
+            { q: "What critical concept did the Jacquard Loom introduce that influenced early computing hardware?", o: ["Vacuum tubes", "Stored program logic via punched cards", "Transistor switching", "Binary arithmetic circuits"], a: 1 },
+            { q: "What was the primary switching technology used in First Generation computers?", o: ["Transistors", "Integrated Circuits", "Vacuum Tubes", "Microprocessors"], a: 2 },
+            { q: "Which computer is considered the first successful commercial digital computer?", o: ["ENIAC", "UNIVAC I", "EDVAC", "IBM 7090"], a: 1 },
+            { q: "What major technology shift defined Second Generation computing?", o: ["Microprocessors replaced ICs", "Transistors replaced vacuum tubes", "Magnetic tape replaced RAM", "Silicon chips replaced core storage"], a: 1 },
+            { q: "Integrated Circuits (ICs) were the hallmark of which computer generation?", o: ["First", "Second", "Third", "Fourth"], a: 2 },
+            { q: "What technology enabled the development of the personal computer (PC) in the Fourth Generation?", o: ["Vacuum tubes", "VLSI Microprocessors", "Magnetic Drums", "Transistors"], a: 1 },
+            { q: "Fifth-generation computing systems are primarily characterized by:", o: ["Vacuum Tube arrays", "Artificial Intelligence and parallel processing", "Assembly language restrictions", "Mechanical gears"], a: 1 },
+            { q: "What is the primary feature of the Von Neumann Architecture?", o: ["Separate storage paths for data and instructions", "Shared memory for both instructions and data", "No use of internal registers", "Asynchronous parallel processing channels"], a: 1 },
+            { q: "Which CPU component decodes instructions and manages the flow of signals throughout the system?", o: ["Arithmetic Logic Unit", "Control Unit", "Internal Registers", "System Bus Interface"], a: 1 },
+            { q: "Where does the ALU store intermediate data during mathematical calculations?", o: ["Secondary Storage", "Registers", "Main Memory (RAM)", "BIOS chips"], a: 1 },
+            { q: "Which component inside the CPU holds the address of the next instruction to be fetched?", o: ["Instruction Register", "Accumulator", "Program Counter", "Memory Data Register"], a: 2 },
+            { q: "The three parts of a standard system bus are the Address Bus, Data Bus, and:", o: ["Instruction Bus", "Control Bus", "Peripheral Bus", "Logic Bus"], a: 1 },
+            { q: "Which system bus is strictly unidirectional?", o: ["Data Bus", "Control Bus", "Address Bus", "Expansion Bus"], a: 2 },
+            { q: "What are the steps of the CPU instruction cycle, in the correct order?", o: ["Decode, Fetch, Execute", "Fetch, Execute, Store", "Fetch, Decode, Execute", "Load, Process, Output"], a: 2 },
+            { q: "Which category of computer is designed to handle massive enterprise workloads and thousands of concurrent users?", o: ["Microcomputer", "Minicomputer", "Mainframe", "Supercomputer"], a: 2 },
+            { q: "Supercomputers excel primarily because of high-speed performance in:", o: ["Word processing", "Floating-point mathematical calculations", "Single-user gaming", "E-mail sorting systems"], a: 1 },
+            { q: "A standard smartphone or desktop PC falls into which computer category?", o: ["Microcomputer", "Minicomputer", "Mainframe", "Supercomputer"], a: 0 },
+            { q: "Which type of memory is volatile and loses its data when the power is turned off?", o: ["ROM", "Flash Memory", "RAM", "EEPROM"], a: 2 },
+            { q: "Why is Cache memory placed between the CPU and main RAM?", o: ["To provide long-term storage", "To store the BIOS", "To speed up data access by holding frequently used instructions", "To encrypt user files"], a: 2 },
+            { q: "Which type of RAM uses flip-flops, runs very fast, and is commonly used for Cache memory?", o: ["DRAM", "SRAM", "SDRAM", "DDR-RAM"], a: 1 },
+            { q: "What is a key difference between SRAM and DRAM?", o: ["SRAM is volatile, DRAM is non-volatile", "DRAM must be constantly refreshed, while SRAM does not need refreshing as long as it has power", "SRAM is much cheaper than DRAM", "DRAM is faster than SRAM"], a: 1 },
+            { q: "Which type of ROM can be wiped electronically using voltage pulses and rewritten byte-by-byte?", o: ["PROM", "EPROM", "EEPROM", "Masked ROM"], a: 2 },
+            { q: "What kind of light is used to erase the data on an EPROM chip?", o: ["Infrared light", "Ultraviolet light", "Visible green laser light", "X-ray radiation"], a: 1 },
+            { q: "Which storage device has no moving parts and relies entirely on flash memory chips?", o: ["Hard Disk Drive (HDD)", "Solid State Drive (SSD)", "Floppy Disk", "CD-ROM"], a: 1 },
+            { q: "Why are Hard Disk Drives (HDDs) more vulnerable to physical shocks than Solid State Drives (SSDs)?", o: ["They use volatile memory chips", "They rely on spinning magnetic platters and mechanical read/write heads", "They are made entirely of glass components", "They lack a metal chassis wrapper"], a: 1 },
+            { q: "What is the standard storage capacity of a normal single-layer compact disc (CD)?", o: ["4.7 GB", "700 MB", "1.44 MB", "25 GB"], a: 1 },
+            { q: "Which laser type and wavelength does a Blu-ray player use to read tightly packed data tracks?", o: ["780nm Infrared laser", "650nm Red laser", "405nm Blue-violet laser", "550nm Green laser"], a: 2 },
+            { q: "What is the maximum data storage capacity of a standard single-sided, single-layer DVD?", o: ["700 MB", "4.7 GB", "8.5 GB", "25 GB"], a: 1 },
+            { q: "Which technology allows users to access files over the internet from remote, distributed server clusters?", o: ["Local caching", "Cloud Storage", "SRAM indexing", "Parallel bus bridging"], a: 1 },
+            { q: "Which of the following is an example of a legacy communication interface port?", o: ["USB Type-C", "Serial RS-232 port", "HDMI 2.1", "Thunderbolt 4"], a: 1 },
+            { q: "What is the theoretical maximum transfer rate of a USB 2.0 (High-Speed) connection?", o: ["12 Mbps", "480 Mbps", "5 Gbps", "40 Gbps"], a: 1 },
+            { q: "Which physical connection type features a reversible design and supports data transmission, video output, and power delivery?", o: ["USB Type-A", "USB Type-C", "VGA DB-15", "DVI-D"], a: 1 },
+            { q: "Thunderbolt 4 interfaces are built on top of which connection protocol to reach speeds up to 40 Gbps?", o: ["SATA v3", "PCI Express (PCIe) and DisplayPort", "RS-232 Serial line logic", "Centronics Parallel systems"], a: 1 },
+            { q: "Which port is used to transmit uncompressed digital video and multi-channel audio data to displays?", o: ["PS/2 port", "HDMI", "Parallel LPT1", "Serial COM1"], a: 1 },
+            { q: "What is the base (radix) of the Hexadecimal number system?", o: ["2", "8", "10", "16"], a: 3 },
+            { q: "How many unique digits or symbols are available in the Octal number system?", o: ["2", "8", "10", "16"], a: 1 },
+            { q: "In the Hexadecimal system, what decimal value does the letter 'E' represent?", o: ["11", "12", "14", "15"], a: 2 },
+            { q: "What is the binary result of adding 1 + 1?", o: ["2", "10", "11", "01"], a: 1 },
+            { q: "Calculate the binary sum of 1011 + 0001.", o: ["1100", "1012", "1111", "1010"], a: 0 },
+            { q: "What is the binary result of 1 - 1?", o: ["0", "1", "10", "Borrow 1"], a: 0 },
+            { q: "Calculate the binary subtraction: 110 - 001.", o: ["100", "101", "011", "111"], a: 1 },
+            { q: "How many unique characters can a standard 7-bit ASCII encoding scheme represent?", o: ["64", "128", "256", "1024"], a: 1 },
+            { q: "Which encoding scheme was created by IBM specifically for legacy mainframe environments?", o: ["ASCII", "Unicode UTF-8", "EBCDIC", "Hexadecimal mapping"], a: 2 },
+            { q: "Which encoding standard supports characters from almost all active written languages, symbols, and emojis?", o: ["ASCII", "Extended ASCII", "EBCDIC", "Unicode"], a: 3 },
+            { q: "Which of the following is considered a pure hardware input component?", o: ["OLED Monitor Panel", "Laser Printer Unit", "Barcode Scanner Module", "Audio Speaker Box"], a: 2 },
+            { q: "Which memory layer is non-volatile and retains the computer's initial startup (boot) firmware?", o: ["RAM", "ROM", "L2 CPU Cache", "Virtual Scratchpad swap space"], a: 1 },
+            { q: "What does an Address Bus carry?", o: ["The actual file data bits", "The physical memory address locations being targeted", "Clock timing synchronization triggers", "Power distribution current"], a: 1 },
+            { q: "Which number system uses only the digits 0 and 1?", o: ["Decimal", "Octal", "Hexadecimal", "Binary"], a: 3 },
+            { q: "Convert the binary number 101 into a decimal value.", o: ["3", "4", "5", "6"], a: 2 },
+            { q: "Convert the decimal number 8 into its binary equivalent.", o: ["0111", "1000", "1001", "1100"], a: 1 },
+            { q: "What is a single binary digit (0 or 1) commonly called?", o: ["Byte", "Nibble", "Bit", "Word"], a: 2 },
+            { q: "How many bits make up a standard single Byte?", o: ["4", "8", "16", "32"], a: 1 },
+            { q: "A collection of exactly 4 binary bits is known as a:", o: ["Bit", "Byte", "Nibble", "Word"], a: 2 },
+            { q: "Which storage component has the absolute lowest access latency (fastest response time) in a computer?", o: ["Main System DRAM", "Solid State Drive", "Internal CPU Registers", "Level 3 Shared Cache"], a: 2 },
+            { q: "What type of computer is primarily used to host high-traffic web platforms and business networks?", o: ["Supercomputer", "Minicomputer / Midrange Server", "Single-board Controller", "Embedded System"], a: 1 },
+            { q: "Which of the following is a classic example of an output device?", o: ["Optical Mouse", "Flatbed Scanner", "Plotter unit", "Keyboard"], a: 2 },
+            { q: "What type of hardware interface is an 'HDMI' cable connection?", o: ["Network Ethernet Bridge", "High-Definition Multimedia Interface for displays", "Internal storage bus link", "Legacy serial peripheral bus"], a: 1 },
+            { q: "What limitation of early 7-bit ASCII led directly to the creation of Unicode standards?", o: ["It consumed too much drive storage space", "It could not represent non-English alphabets and complex scripts", "It lacked support for basic integer numbers", "It was incompatible with web browsers"], a: 1 },
+            { q: "Which item is considered system software?", o: ["Web Browser", "Operating System", "Spreadsheet Program", "Video Editing App"], a: 1 },
+            { q: "What does the Control Unit do during the 'Decode' phase of the instruction cycle?", o: ["It moves data from the hard drive to RAM", "It interprets the fetched binary code to find out what action is required", "It performs arithmetic calculations", "It displays results on the monitor"], a: 1 },
+            { q: "Which component coordinates timing across all system elements using dedicated control lines?", o: ["Data Bus", "Control Bus", "Address Bus", "ALU Pipeline"], a: 1 },
+            { q: "The primary material used to manufacture modern integrated circuits and microprocessors is:", o: ["Copper", "Silicon", "Aluminum", "Carbon fibers"], a: 1 },
+            { q: "Which generation of computing systems first introduced multi-tasking operating systems?", o: ["First Generation", "Second Generation", "Third Generation", "Fourth Generation"], a: 2 },
+            { q: "What is the decimal equivalent of the binary number 111?", o: ["5", "6", "7", "8"], a: 2 },
+            { q: "Convert the Hexadecimal value 'A' into an explicit decimal integer.", o: ["9", "10", "11", "12"], a: 1 },
+            { q: "What is the binary result of the operation 1 + 1 + 1?", o: ["11", "10", "100", "3"], a: 0 },
+            { q: "Which memory standard needs to be periodically refreshed with electricity to keep its data intact?", o: ["SRAM", "DRAM", "EEPROM", "Flash storage"], a: 1 },
+            { q: "What does the abbreviation BIOS stand for?", o: ["Binary Integrated Output System", "Basic Input Output System", "Bootstrap Initial OS Standard", "Broadband Interface Operating Software"], a: 1 },
+            { q: "Where is the BIOS firmware stored non-volatily on modern system motherboards?", o: ["In the CPU L1 cache", "On a ROM or flash memory chip", "On the main hard drive platter", "Inside the volatile system RAM"], a: 1 },
+            { q: "Which item represents the highest capacity of data storage?", o: ["1 Megabyte (MB)", "1 Gigabyte (GB)", "1 Kilobyte (KB)", "1 Terabyte (TB)"], a: 3 },
+            { q: "How many Megabytes (MB) make up 1 Gigabyte (GB) under standard binary computing scales?", o: ["1000", "1024", "512", "2048"], a: 1 },
+            { q: "Which technology uses a red laser with a 650nm wavelength to read data?", o: ["Compact Disc (CD)", "Digital Versatile Disc (DVD)", "Blu-ray Disc", "Magnetic tape drive"], a: 1 },
+            { q: "Which of the following is a bidirectional system bus?", o: ["Address Bus", "Data Bus", "Unidirectional line path", "None of the above"], a: 1 },
+            { q: "What type of character encoding standard uses an 8-bit block structure and is seen mostly on legacy IBM mainframes?", o: ["Unicode UTF-8", "ASCII", "EBCDIC", "Morse Code"], a: 2 },
+            { q: "What does the acronym MIPS stand for when measuring processor speeds?", o: ["Million Instructions Per Second", "Memory Indexed Processing System", "Main Input Peripheral Standard", "Microprocessor Integrated Pipeline Stage"], a: 0 },
+            { q: "Which component inside a computer acts as the primary data highway, linking the CPU, memory, and expansion cards?", o: ["The Motherboard / System Board", "The Hard Drive Case", "The Power Supply Unit", "The Display Panel"], a: 0 },
+            { q: "Which number system is represented by a base radix of 8?", o: ["Hexadecimal", "Decimal", "Octal", "Binary"], a: 2 },
+            { q: "What is the binary result of 10 - 01?", o: ["01", "11", "00", "10"], a: 0 },
+            { q: "Which memory type serves as the main working space where active apps and files are kept for the CPU?", o: ["ROM", "RAM", "Secondary Backup Drive", "Magnetic Tape archive"], a: 1 },
+            { q: "What is the term for the initial startup routine that loads the operating system when a computer is turned on?", o: ["Defragmenting", "Bootstrapping / Booting", "Paging", "Caching"], a: 1 },
+            { q: "Which USB standard supports data transfer rates up to 5 Gbps?", o: ["USB 1.1", "USB 2.0", "USB 3.0 / SuperSpeed", "Legacy Serial Link"], a: 2 },
+            { q: "Which storage device uses magnetic platters to store data?", o: ["Solid State Drive (SSD)", "Hard Disk Drive (HDD)", "Blu-ray Disc", "SD Card"], a: 1 },
+            { q: "What does the ALU do when it encounters an operation like 'A > B'?", o: ["It moves data from register A to B", "It performs a logical comparison", "It adds the values of A and B together", "It deletes both variables"], a: 1 },
+            { q: "Which number system uses characters from A to F alongside digits 0 to 9?", o: ["Octal", "Binary", "Hexadecimal", "Decimal"], a: 2 },
+            { q: "Convert the binary value 1111 into a decimal integer.", o: ["12", "14", "15", "16"], a: 2 },
+            { q: "Which storage media has the slowest data access speeds?", o: ["Internal CPU Registers", "System DRAM", "Magnetic Backup Tape", "NVMe Solid State Drive"], a: 2 },
+            { q: "What type of expansion card handles rendering images and outputting video to a monitor?", o: ["Network Interface Card (NIC)", "Graphics Card / GPU", "Sound Card", "Modem Interface Board"], a: 1 },
+            { q: "What type of memory is an EPROM?", o: ["Volatile RAM", "Non-Volatile Erasable Programmable ROM", "Static Cache layer", "External cloud disk space"], a: 1 },
+            { q: "Which device is used to enter text into a computer?", o: ["Monitor", "Printer", "Keyboard", "Plotter"], a: 2 },
+            { q: "What does the Program Counter (PC) register store?", o: ["The total number of files on the system", "The memory address of the next instruction to be processed", "The current user's profile ID", "The mathematical result of the last operation"], a: 1 },
+            { q: "What is the decimal value of the binary number 0010?", o: ["1", "2", "3", "4"], a: 1 },
+            { q: "Which port is used to connect high-speed storage, displays, and external hardware over a single Type-C cable using PCIe channels?", o: ["VGA Port", "Parallel LPT2", "Thunderbolt", "PS/2 Port"], a: 2 },
+            { q: "Which computing generation introduced microprocessors on a single silicon chip?", o: ["Second Gen", "Third Gen", "Fourth Gen", "Fifth Gen"], a: 2 }
+        ];
+
+        // Function to build and render all 100 questions cleanly inside the DOM
+        function initializeExamEngine() {
+            const wrapper = document.getElementById("questions-wrapper");
+            let scoreTracker = 0;
+            const answeredSet = new Set();
+
+            questionsData.forEach((item, index) => {
+                const qBlock = document.createElement("div");
+                qBlock.className = "question-block";
+
+                const qText = document.createElement("div");
+                qText.className = "question-text";
+                qText.innerText = `Q${index + 1}: ${item.q}`;
+                qBlock.appendChild(qText);
+
+                const optsList = document.createElement("ul");
+                optsList.className = "options-list";
+
+                const feedback = document.createElement("div");
+                feedback.className = "feedback-text";
+
+                item.o.forEach((option, oIndex) => {
+                    const optItem = document.createElement("li");
+                    optItem.className = "option-item";
+                    optItem.innerText = option;
+
+                    // Click event handler to grade the option immediately
+                    optItem.addEventListener("click", () => {
+                        if (answeredSet.has(index)) return; // Prevents re-clicking after answered
+
+                        // Disable all sibling options for this question
+                        const siblings = optsList.querySelectorAll(".option-item");
+                        siblings.forEach(el => el.classList.add("disabled"));
+
+                        if (oIndex === item.a) {
+                            optItem.classList.add("correct");
+                            feedback.innerText = "Correct! Well done.";
+                            feedback.className = "feedback-text correct";
+                            scoreTracker++;
+                        } else {
+                            optItem.classList.add("incorrect");
+                            siblings[item.a].classList.add("correct"); // Highlight the right answer
+                            feedback.innerText = `Incorrect. The correct answer was: ${item.o[item.a]}`;
+                            feedback.className = "feedback-text incorrect";
+                        }
+
+                        answeredSet.add(index);
+                        document.getElementById("score-counter").innerText = `Current Points: ${scoreTracker} / 100`;
+
+                        // Display the final cumulative score banner once all 100 questions are answered
+                        if (answeredSet.size === questionsData.length) {
+                            const banner = document.getElementById("score-banner");
+                            banner.innerText = `Exam Completed! Your Final Score is: ${scoreTracker} out of 100 points.`;
+                            banner.style.display = "block";
+                        }
+                    });
+
+                    optsList.appendChild(optItem);
+                });
+
+                qBlock.appendChild(optsList);
+                qBlock.appendChild(feedback);
+                wrapper.appendChild(qBlock);
+            });
+        }
+
+        // Initialize quiz execution when the window finishes loading
+        window.onload = initializeExamEngine;
+    </script>
+</body>
+</html>
