@@ -36,45 +36,82 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: var(--font-body);
-            padding-top: 70px;
+            padding-top: 60px;
         }
 
-        /* Dark Developer-style Navigation Bar */
+        /* Responsive Navigation Bar with Mobile Dropdown Toggle */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(17, 24, 39, 0.85);
+            background-color: rgba(17, 24, 39, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            overflow-x: auto;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--primary);
+        }
+
+        /* Hamburger Menu Icon */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 20px;
-            height: 65px;
             align-items: center;
         }
 
         nav li {
-            padding: 0 12px;
+            padding: 0 5px;
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-family: var(--font-heading);
             transition: all 0.2s ease;
             white-space: nowrap;
-            padding: 6px 12px;
+            padding: 8px 12px;
             border-radius: 6px;
         }
 
@@ -83,83 +120,62 @@
             background-color: var(--bg-accent);
         }
 
-        /* Container & Grid Setup */
+        /* Layout Container & Asymmetric Responsive Setup */
         .container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 24px 16px;
         }
 
         header {
             background: linear-gradient(135deg, #111827 0%, #1e1b4b 100%);
             border: 1px solid var(--border);
-            padding: 50px 30px;
-            border-radius: 16px;
+            padding: 35px 20px;
+            border-radius: 12px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
         header h1 {
             font-family: var(--font-heading);
-            font-size: 2.8rem;
+            font-size: 2rem;
             color: #ffffff;
-            letter-spacing: -0.05em;
-            margin-bottom: 12px;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 700px;
+            font-size: 0.95rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Layout Structure */
         .layout-grid {
             display: grid;
             grid-template-columns: 3fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 1024px) {
-            .layout-grid {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                display: none;
-            }
+            gap: 24px;
         }
 
         section {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 35px;
-            border-radius: 16px;
-            margin-bottom: 40px;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
         }
 
         h2 {
             font-family: var(--font-heading);
             color: #ffffff;
-            font-size: 1.8rem;
-            letter-spacing: -0.03em;
-            margin-bottom: 25px;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         h2::before {
@@ -171,26 +187,26 @@
         h3 {
             font-family: var(--font-heading);
             color: #ffffff;
-            margin: 25px 0 15px 0;
-            font-size: 1.3rem;
+            margin: 20px 0 12px 0;
+            font-size: 1.15rem;
         }
 
         p {
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             color: var(--text-main);
-            font-size: 0.98rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        /* Modern Typography Elements */
         ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
+            margin-left: 18px;
+            margin-bottom: 16px;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--text-main);
-            font-size: 0.98rem;
+            font-size: 0.95rem;
         }
 
         strong {
@@ -198,61 +214,56 @@
             font-weight: 600;
         }
 
-        /* Custom UI Micro-components */
         .code-inline {
             background-color: var(--bg-accent);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: monospace;
             color: #f43f5e;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .highlight-box {
             background-color: rgba(59, 130, 246, 0.05);
             border-left: 4px solid var(--primary);
-            padding: 20px;
-            border-radius: 4px 12px 12px 4px;
-            margin: 25px 0;
+            padding: 16px;
+            border-radius: 4px 10px 10px 4px;
+            margin: 20px 0;
         }
 
         .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
         }
 
         .info-card {
             background-color: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 12px;
-            transition: border-color 0.2s ease;
+            padding: 16px;
+            border-radius: 10px;
         }
 
-        .info-card:hover {
-            border-color: var(--primary);
-        }
-
-        /* Flat Responsive Table Overhaul */
+        /* Fully Fluid Scrolling Responsive Tables */
         .table-responsive {
             overflow-x: auto;
-            margin: 30px 0;
-            border-radius: 12px;
+            margin: 20px 0;
+            border-radius: 10px;
             border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.95rem;
-            background-color: rgba(255, 255, 255, 0.01);
+            font-size: 0.9rem;
+            min-width: 500px; /* Forces logical swipe mechanics on narrow viewports */
         }
 
         th, td {
-            padding: 14px 18px;
+            padding: 12px 14px;
             border-bottom: 1px solid var(--border);
         }
 
@@ -263,94 +274,81 @@
             font-weight: 500;
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background-color: rgba(255, 255, 255, 0.01);
-        }
-
-        /* Sidebar Widgets */
+        /* Floating Sidebar Widget */
         .sidebar-widget {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 16px;
+            padding: 20px;
+            border-radius: 12px;
             position: sticky;
-            top: 110px;
+            top: 84px;
         }
 
         .sidebar-widget h4 {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 12px;
             color: #ffffff;
         }
 
-        /* Quiz UI Overhaul */
+        /* Interactive Mobile Quiz Layout Elements */
         .quiz-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: var(--bg-accent);
-            padding: 18px 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
             border: 1px solid var(--border);
         }
 
         .quiz-score-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
 
         .question-block {
             background: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 25px;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .question-meta {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--primary);
             font-family: var(--font-heading);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .question-text {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 500;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
 
         .options-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
         }
 
         .option-node {
             background: var(--bg-accent);
             border: 1px solid var(--border);
-            padding: 14px 20px;
+            padding: 12px 16px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-main);
-        }
-
-        .option-node:hover {
-            border-color: var(--text-muted);
-            background-color: rgba(255, 255, 255, 0.05);
+            line-height: 1.4;
         }
 
         .option-node.correct {
@@ -375,12 +373,13 @@
         }
 
         .feedback-node {
-            margin-top: 15px;
-            font-size: 0.9rem;
+            margin-top: 12px;
+            font-size: 0.85rem;
             display: none;
-            padding: 10px 15px;
+            padding: 10px 14px;
             border-radius: 6px;
             font-family: var(--font-heading);
+            line-height: 1.4;
         }
 
         .feedback-node.correct {
@@ -400,128 +399,187 @@
             background: linear-gradient(135deg, #064e3b 0%, #111827 100%);
             border: 2px solid var(--success);
             color: white;
-            padding: 35px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 10px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         #score-summary-banner h3 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             margin-top: 0;
             color: var(--success);
+        }
+
+        /* RESPONSIVE BREAKPOINTS OVERHAUL FOR MOBILE PORTRAITS */
+        @media (max-width: 1024px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+
+            /* Responsive drawer stack conversion */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #111827;
+                border-bottom: 1px solid var(--border);
+                padding: 10px 0;
+            }
+
+            nav ul.mobile-open {
+                display: flex;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: left;
+                padding: 0;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 24px;
+                border-radius: 0;
+                font-size: 0.95rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            }
+            
+            nav a:hover, nav a.active {
+                background-color: var(--bg-accent);
+            }
+
+            /* Transformation of specific interaction triggers to prevent accidental finger taps */
+            .option-node {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <ul>
-            <li><a href="#intro">01. Fundamentals</a></li>
-            <li><a href="#evolution">02. Evolution</a></li>
-            <li><a href="#categories">03. Categories</a></li>
-            <li><a href="#architecture">04. Architecture</a></li>
-            <li><a href="#hardware">05. Hardware & IO</a></li>
-            <li><a href="#encoding">06. Systems & Codes</a></li>
-            <li><a href="#quiz">07. Exam Quiz Portal</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="nav-logo">FDN1202<span>//PORTAL</span></div>
+            <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="#intro">01. Fundamentals</a></li>
+                <li><a href="#evolution">02. Evolution</a></li>
+                <li><a href="#categories">03. Categories</a></li>
+                <li><a href="#architecture">04. Architecture</a></li>
+                <li><a href="#hardware">05. Storage & Ports</a></li>
+                <li><a href="#encoding">06. Systems & Codes</a></li>
+                <li><a href="#logic">07. Logic & Flowcharts</a></li>
+                <li><a href="#quiz">08. Exam Portal</a></li>
+            </ul>
+        </div>
     </nav>
 
     <div class="container">
         <header>
             <h1>FDN1202: Introduction to Computers</h1>
-            <p>Unified Learning & Examination Portal. Optimized for rapid pre-exam conceptual revision.</p>
+            <p>Unified Learning & Examination Portal. Formatted exactly from lecture materials with complete mobile responsive layouts.</p>
         </header>
 
         <div class="layout-grid">
             <main>
                 <section id="intro">
                     <h2>Introduction & Characteristics of Computers</h2>
-                    <p>A <strong>computer</strong> is a high-speed digital electronic data processing system that accepts raw input data under programmatic control, performs structured mathematical or logical transformations, and outputs the resulting information into intelligible human or machine formats.</p>
+                    <p>A <strong>computer</strong> is an electronic machine that can calculate, process data, and control tasks. It automatically processes input parameters under systemic programmatic instructions to render meaningful results.</p>
                     
                     <div class="highlight-box">
-                        <strong>The Systematic Processing Loop:</strong> Data Input &rarr; Centralized Processing &rarr; Information Output &rarr; Persistent Memory Storage.
+                        <strong>The Information Processing Cycle:</strong>
+                        <p>&bull; <strong>Input:</strong> Giving data to a computer.</p>
+                        <p>&bull; <strong>Processing:</strong> Following instructions to manipulate variables.</p>
+                        <p>&bull; <strong>Output:</strong> Showing the result on a screen.</p>
+                        <p>&bull; <strong>Storage:</strong> Saving data for future use.</p>
                     </div>
 
                     <h3>Core Performance Indicators</h3>
                     <div class="grid-2">
                         <div class="info-card">
-                            <strong>Speed:</strong> Processes raw parameters in milliseconds, microseconds, or nanoseconds. Internal micro-ops are gauged in millions of instructions per second (MIPS).
+                            <strong>Speed:</strong> Processes millions of instructions per second (MIPS) instantly.
                         </div>
                         <div class="info-card">
-                            <strong>Accuracy:</strong> Computational errors do not occur naturally unless inherited from faulty instructions or invalid user inputs, a paradigm known as <strong>GIGO (Garbage In, Garbage Out)</strong>.
+                            <strong>Accuracy:</strong> Works perfectly without mistakes. Output failures point directly to user error or faulty data parameters via <strong>GIGO (Garbage In, Garbage Out)</strong>.
                         </div>
                         <div class="info-card">
-                            <strong>Diligence:</strong> Completely immune to operational fatigue, degradation of attention, or workflow monotony. Performs computational runs identically across continuous durations.
+                            <strong>Diligence:</strong> Can work continuously over long durations without exhaustion, fatigue, or loss of focus.
                         </div>
                         <div class="info-card">
-                            <strong>Storage Capacity:</strong> Features high-density primary scaling and secondary persistent structures to index, search, and parse terrabytes of informational archives safely.
+                            <strong>Versatility:</strong> Capable of managing multi-tasking operations and multiple completely different types of processing tasks sequentially.
                         </div>
                     </div>
                     <ul>
-                        <li><strong>Versatility:</strong> Capable of switching from matrix calculations to complex network rendering seamlessly within identical hardware clock cycles.</li>
-                        <li><strong>Automation:</strong> Processes tasks independently once structural setups or job sequences are triggered in memory.</li>
+                        <li><strong>Automation:</strong> Can perform complex sequential tasks automatically once set up initially.</li>
                     </ul>
                 </section>
 
                 <section id="evolution">
-                    <h2>Evolutionary History & System Generations</h2>
-                    <p>Computing architecture evolved from early physical counting tools to advanced microchips:</p>
+                    <h2>Evolutionary History & Pioneers</h2>
+                    <p>The progression of computational technology from mechanical counting logic to modern computer networks:</p>
                     <ul>
-                        <li><strong>Abacus:</strong> The earliest known mechanical calculating framework, based on a moving bead layout for addition and subtraction.</li>
-                        <li><strong>Napier's Bones:</strong> Hand-carved calculating rods developed to simplify complex multiplication and division algorithms.</li>
-                        <li><strong>Pascaline:</strong> The first operational gear-driven mechanical calculator, built explicitly to process integer sums automatically.</li>
-                        <li><strong>Analytical Engine:</strong> Charles Babbage's 19th-century design. It introduced the core components of modern computing: an arithmetic processing unit, sequential control logic, and an integrated memory matrix. This design earned Babbage the title <strong>"Father of the Computer"</strong>.</li>
-                        <li><strong>UNIVAC:</strong> The Universal Automatic Computer, which marked the transition of digital calculating systems into commercial enterprise markets.</li>
+                        <li><strong>Abacus:</strong> The earliest historical counting device.</li>
+                        <li><strong>Pascaline:</strong> The first automatic mechanical calculator, restricted strictly to addition and subtraction ($+$ and $-$).</li>
+                        <li><strong>Stepped Reckoner:</strong> An improved mechanical calculator that could multiply, divide, and find square roots.</li>
+                        <li><strong>Punch Cards:</strong> Used in early mechanical computers to feed input data parameters.</li>
+                        <li><strong>Charles Babbage:</strong> Recognized historically as the <strong>"Father of the Computer"</strong>.</li>
+                        <li><strong>Ada Lovelace:</strong> Acclaimed as the world's very first computer programmer.</li>
+                        <li><strong>ENIAC:</strong> The first automatic, general-purpose, electronic digital computer.</li>
+                        <li><strong>EDVAC:</strong> Introduced the groundbreaking <strong>stored-program concept</strong> and shifted computing hardware to use the <strong>Binary System</strong> ($0$ and $1$).</li>
+                        <li><strong>UNIVAC:</strong> The first digital computer built explicitly for commercial corporate use.</li>
                     </ul>
 
-                    <h3>Generational Matrix Breakdown</h3>
+                    <h3>System Generations Matrix</h3>
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
                                     <th>Generation</th>
-                                    <th>Core Switching Core</th>
-                                    <th>Primary Storage Technology</th>
-                                    <th>Key Constraints & Innovations</th>
-                                    <th>Architectural Models</th>
+                                    <th>Primary Switching Electronic Component</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1st Gen (1940-1956)</td>
+                                    <td><strong>1st Generation</strong></td>
                                     <td>Vacuum Tubes</td>
-                                    <td>Magnetic Drums</td>
-                                    <td>High power draw, heavy heat emission, relied entirely on machine language code.</td>
-                                    <td>ENIAC, EDVAC, UNIVAC I</td>
                                 </tr>
                                 <tr>
-                                    <td>2nd Gen (1956-1963)</td>
+                                    <td><strong>2nd Generation</strong></td>
                                     <td>Transistors</td>
-                                    <td>Magnetic Core Memory</td>
-                                    <td>Reduced physical scale, accelerated execution steps, introduced early assembly translation.</td>
-                                    <td>IBM 7094, CDC 1604</td>
                                 </tr>
                                 <tr>
-                                    <td>3rd Gen (1964-1971)</td>
+                                    <td><strong>3rd Generation</strong></td>
                                     <td>Integrated Circuits (ICs)</td>
-                                    <td>Semiconductor Registers</td>
-                                    <td>Keyboards, visual display terminals, and primitive operating system monitors appeared.</td>
-                                    <td>IBM 360, PDP-8</td>
                                 </tr>
                                 <tr>
-                                    <td>4th Gen (1971-Present)</td>
-                                    <td>Microprocessors (VLSI)</td>
-                                    <td>High-Density Silicon RAM</td>
-                                    <td>Led to the rise of mass consumer personal computers (PCs), networks, and client-server setups.</td>
-                                    <td>Intel 4004 platforms, Apple II</td>
+                                    <td><strong>4th Generation</strong></td>
+                                    <td>Microprocessors</td>
                                 </tr>
                                 <tr>
-                                    <td>5th Gen (In Development)</td>
-                                    <td>ULSI / Quantum Engines</td>
-                                    <td>Advanced Optical Networks</td>
-                                    <td>Parallel execution clusters, contextual AI processing, natural language engines.</td>
-                                    <td>Neural Networks, Supercomputers</td>
+                                    <td><strong>5th Generation</strong></td>
+                                    <td>Artificial Intelligence (AI)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -529,176 +587,164 @@
                 </section>
 
                 <section id="categories">
-                    <h2>Classification of Computing Systems</h2>
-                    <p>Computers are categorized by their physical size, simultaneous user capacity, and processing power:</p>
-                    
-                    <div class="table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Classification</th>
-                                    <th>Scale & Form Factor</th>
-                                    <th>Concurrent User Limit</th>
-                                    <th>Target Operational Domain</th>
-                                    <th>Production Implementations</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Microcomputers</strong></td>
-                                    <td>Compact, fits on a desk or lap</td>
-                                    <td>1 Active User</td>
-                                    <td>Everyday productivity apps, personal web access, and local business tasks.</td>
-                                    <td>Workstations, Laptops, Phones</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Minicomputers</strong></td>
-                                    <td>Medium cabinet scale</td>
-                                    <td>10 to 100+ Networked Users</td>
-                                    <td>Departmental database caching, regional network routing, and shared factory control.</td>
-                                    <td>AS/400, VAX Systems</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Mainframe Computers</strong></td>
-                                    <td>Large, requires server rooms</td>
-                                    <td>Thousands of Concurrent Users</td>
-                                    <td>High-volume enterprise workloads, continuous financial transaction processing, and bulk data indexing.</td>
-                                    <td>IBM zSeries Enterprise Engines</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Supercomputers</strong></td>
-                                    <td>Massive multi-rack arrays</td>
-                                    <td>Dedicated processing nodes</td>
-                                    <td>Ultra-high-speed floating-point processing for scientific research, weather modeling, and quantum simulations.</td>
-                                    <td>Cray XC, Fugaku, Summit Systems</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h2>Classification of Computers</h2>
+                    <p>Computing frameworks are classified into four major domains based on processing scale, user capabilities, and hardware capacity:</p>
+                    <ul>
+                        <li><strong>Microcomputers:</strong> Small, low-cost computer layouts built explicitly for a single user (e.g., Laptops, Smartphones, Desktop personal computers).</li>
+                        <li><strong>Minicomputers:</strong> Medium-sized computing systems optimized to handle multiple users simultaneously (e.g., Apple Mac Mini or departmental server platforms).</li>
+                        <li><strong>Mainframe Computers:</strong> Large, highly powerful systems engineered to manage massive operations and thousands of concurrent users safely (e.g., Core Banking Systems).</li>
+                        <li><strong>Supercomputers:</strong> The fastest, most expensive, and most powerful systems in the world. They utilize massive <strong>parallel processing</strong> power to manage complex computational assignments (e.g., Weather Forecasting setups).</li>
+                    </ul>
                 </section>
 
                 <section id="architecture">
-                    <h2>Computer Architecture & Memory Interconnection</h2>
-                    <p>Modern systems are built on the classic <strong>Von Neumann Model</strong>, which uses a single, shared memory structure to store both active data variables and programmatic instructions.</p>
+                    <h2>Computer Architecture & System Buses</h2>
+                    <p>Modern computers operate under the standard <strong>Von Neumann Architecture</strong>, which describes a configuration where instructions and data variables share a single memory space and are executed in a sequential pipeline.</p>
                     
                     <div class="grid-2">
                         <div class="info-card">
                             <h3>Central Processing Unit (CPU)</h3>
                             <ul>
-                                <li><strong>Control Unit (CU):</strong> The supervisor of the system. It fetches instructions, decodes them into control signals, and manages hardware execution steps.</li>
-                                <li><strong>Arithmetic Logic Unit (ALU):</strong> The execution engine. It handles all basic mathematical steps (addition, subtraction) and logical comparisons (AND, OR, inequalities).</li>
-                                <li><strong>Registers:</strong> High-speed internal memory cells inside the CPU. Includes the <span class="code-inline">Program Counter (PC)</span> for instruction tracking and the <span class="code-inline">Instruction Register (IR)</span>.</li>
+                                <li><strong>Control Unit (CU):</strong> Acts as the manager of the computer. It coordinates system tasks and handles instruction <strong>Fetch</strong> and <strong>Decode</strong> logic steps.</li>
+                                <li><strong>Arithmetic Logic Unit (ALU):</strong> Performs all computing calculations.
+                                    <br>&bull; <i>Arithmetic:</i> $+$, $-$, $\times$, $\div$
+                                    <br>&bull; <i>Logical:</i> $AND$, $OR$, $NOT$
+                                </li>
+                                <li><strong>Registers:</strong> Tiny, extremely high-speed local memory cells inside the CPU chip used to hold instantaneous data temporary variables.</li>
                             </ul>
                         </div>
                         <div class="info-card">
-                            <h3>System Bus Architecture</h3>
+                            <h3>The System Bus Matrix</h3>
                             <ul>
-                                <li><strong>Address Bus (Unidirectional):</strong> Carries physical target location coordinates from the processor out to the memory modules.</li>
-                                <li><strong>Data Bus (Bidirectional):</strong> The data highway that moves actual information bits back and forth between the CPU, RAM, and external devices.</li>
-                                <li><strong>Control Bus (Bidirectional):</strong> Transmits system commands and timing signals (like Read/Write ticks or Interrupt lines) to keep everything in sync.</li>
+                                <li><strong>Address Bus (Unidirectional):</strong> Carries target memory physical location data addresses directly from the CPU out to system components.</li>
+                                <li><strong>Data Bus (Bidirectional):</strong> The main communications highway that shifts actual data bits back and forth across core modules.</li>
+                                <li><strong>Control Bus (Bidirectional):</strong> Transmits system control instructions and synchronization timing clock signals to maintain operations.</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="highlight-box">
-                        <strong>The Instruction Execution Loop:</strong>
-                        <p>1. <strong>Fetch:</strong> The Control Unit reads the instruction from the memory address stored in the Program Counter.</p>
-                        <p>2. <strong>Decode:</strong> The Control Unit translates the binary instruction to determine the required internal hardware tasks.</p>
-                        <p>3. <strong>Execute:</strong> The ALU processes the calculations, updates registers, or transfers data to complete the operation.</p>
+                        <strong>The Instruction Execution Cycle:</strong>
+                        <p>1. <strong>Fetch:</strong> The CPU takes the next instruction from the main memory module.</p>
+                        <p>2. <strong>Decode:</strong> The Control Unit translates the instruction to determine what action is required.</p>
+                        <p>3. <strong>Execute:</strong> The ALU or relevant component performs the required task.</p>
                     </div>
                 </section>
 
                 <section id="hardware">
-                    <h2>Hardware, Storage Subsystems & Interfaces</h2>
+                    <h2>Hardware, Storage Subsystems & Ports</h2>
                     
-                    <h3>I/O Peripheral Ecosystem</h3>
-                    <p><strong>Input Units:</strong> Standard QWERTY Keyboards, Capacitive Touch Panels, Optical Scanners, Barcode Scanners, and Digital Image Sensors.</p>
-                    <p><strong>Output Units:</strong> LED/OLED Displays, High-Speed Laser Printers, Precision Plotters, Audio Speakers, and Haptic Feedback Actuators.</p>
+                    <h3>I/O Peripherals</h3>
+                    <p><strong>Input Devices:</strong> Provide external parameters to the computer (e.g., Keyboards for text input, Mice for making selections, and Scanners for converting paper documents into digital archives).</p>
+                    <p><strong>Output Devices:</strong> Display the final processed outcomes (e.g., Monitors to view digital content, Printers to generate hard copies, and Speakers to output audio sounds).</p>
 
                     <h3>The Memory Hierarchy Matrix</h3>
-                    <p>Systems use a tiered hierarchy to balance access speed, storage capacity, and hardware costs. Fast memory costs more per bit and has smaller capacities, so it sits directly inside or next to the CPU cores.</p>
                     <ul>
-                        <li><strong>Cache Memory:</strong> High-speed SRAM built directly onto the processor chip. It acts as a high-speed buffer, holding frequently used data to keep the CPU from waiting on main RAM.</li>
-                        <li><strong>Primary Memory (RAM/ROM):</strong> The main storage space directly accessible by the CPU via the system bus, allowing active software code to run smoothly.</li>
-                        <li><strong>Secondary Storage:</strong> Non-volatile, high-capacity drives (like SSDs or HDDs) that safely preserve user data files when the computer is powered down.</li>
+                        <li><strong>Cache Memory:</strong> Extremely fast, low-capacity storage situated close to or inside the CPU chip to cache frequently used data.</li>
+                        <li><strong>Primary Storage (RAM):</strong> Main memory. It holds programs currently running and is completely <strong>volatile</strong>, meaning all data is erased instantly if the power source is cut off.</li>
+                        <li><strong>Read Only Memory (ROM):</strong> Permanent, <strong>non-volatile</strong> memory space that safely preserves the critical initial startup instructions (BIOS/firmware) needed to boot the hardware.</li>
                     </ul>
 
                     <div class="grid-2">
                         <div class="info-card">
-                            <h3>RAM Variants (Volatile)</h3>
+                            <h3>RAM Variants</h3>
                             <ul>
-                                <li><strong>SRAM (Static RAM):</strong> Uses flip-flop circuits to hold bit data. It is extremely fast, expensive, and used primarily for CPU caches.</li>
-                                <li><strong>DRAM (Dynamic RAM):</strong> Uses tiny capacitors that must be constantly refreshed with electricity to retain data. It provides high storage density at a lower cost, making it ideal for main system memory.</li>
-                                <li><strong>SDRAM:</strong> Synchronizes its data transfers with the system clock for faster performance.</li>
+                                <li><strong>SRAM (Static RAM):</strong> Extremely fast, expensive memory that requires no refreshing cycles; used primarily for CPU Cache.</li>
+                                <li><strong>DRAM (Dynamic RAM):</strong> Slower and cheaper than SRAM; needs constant electrical refreshing and serves as standard main memory.</li>
+                                <li><strong>SDRAM (Synchronous DRAM):</strong> Faster than traditional DRAM; aligns with the system clock and is used in modern main memory.</li>
                             </ul>
                         </div>
                         <div class="info-card">
-                            <h3>ROM Variants (Non-Volatile)</h3>
+                            <h3>ROM Variants</h3>
                             <ul>
-                                <li><strong>PROM:</strong> Programmable ROM that is manufactured blank and can be written to exactly once using a specialized device.</li>
-                                <li><strong>EPROM:</strong> Erasable PROM that can be wiped clean using strong ultraviolet light exposure and rewritten.</li>
-                                <li><strong>EEPROM:</strong> Electrically Erasable PROM that can be cleared and rewritten byte-by-byte using electrical signals. Used for modern BIOS/UEFI firmware.</li>
+                                <li><strong>PROM (Programmable ROM):</strong> A blank chip manufactured to be programmed by a user exactly once.</li>
+                                <li><strong>EPROM (Erasable PROM):</strong> Can be completely wiped using strong <strong>Ultraviolet (UV) Light</strong> and rewritten.</li>
+                                <li><strong>EEPROM (Electrically Erasable PROM):</strong> Can be cleared and rewritten electrically byte-by-byte.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <h3>SSD vs HDD Architecture</h3>
+                    <h3>Secondary Persistent Storage</h3>
+                    <p>Used to store user files permanently. Unlike RAM, it is non-volatile.</p>
+                    <ul>
+                        <li><strong>HDD (Hard Disk Drive):</strong> Traditional storage using rotating magnetic platters. It is cheap and offers high capacity, but operates slowly and is vulnerable to drop damage.</li>
+                        <li><strong>SSD (Solid State Drive):</strong> Modern storage using flash memory. It contains zero moving parts, runs exceptionally fast, and is highly durable.</li>
+                    </ul>
+
+                    <h3>Flash & Optical Format Details</h3>
+                    <ul>
+                        <li><strong>USB Flash Drives:</strong> Portable flash memory devices ranging from $1\text{ GB}$ up to $256\text{ GB}$.</li>
+                        <li><strong>Memory Cards (SD / microSD):</strong> High-density micro-storage units from $2\text{ GB}$ up to $1\text{ TB}$, used in cameras and mobile phones.</li>
+                        <li><strong>Compact Disc (CD):</strong> Stores up to $700\text{ MB}$ of data and relies on an <strong>Infrared Laser</strong> ($780\text{nm}$).</li>
+                        <li><strong>Digital Versatile Disc (DVD):</strong> Stores $4.7\text{ GB}$ on a standard single-layer disc and relies on a <strong>Red Laser</strong> ($650\text{nm}$).</li>
+                        <li><strong>Blu-ray Disc:</strong> Stores up to $25\text{ GB}$ on a single layer and relies on a short-wavelength <strong>Blue-Violet Laser</strong> ($405\text{nm}$).</li>
+                    </ul>
+
+                    <h3>Cloud Storage Frameworks</h3>
+                    <p>Off-site file storage hosted on remote networks, offering easy sharing and anytime access without requiring local hardware upkeep.</p>
+                    <ul>
+                        <li><strong>Public Cloud:</strong> Shared platforms accessible over the public internet (e.g., Google Drive, Microsoft OneDrive).</li>
+                        <li><strong>Private Cloud:</strong> Dedicated server networks setup exclusively for a single secure organization.</li>
+                        <li><strong>Hybrid Cloud:</strong> Combined systems that blend private infrastructure control with public cloud scaling options.</li>
+                    </ul>
+
+                    <h3>Physical Interface Ports</h3>
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Feature Spec</th>
-                                    <th>Solid State Drives (SSD)</th>
-                                    <th>Hard Disk Drives (HDD)</th>
+                                    <th>Port Classification</th>
+                                    <th>Technical Specifications & Intended Function</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Data Transfer Core</td>
-                                    <td>Non-volatile NAND Flash memory cells</td>
-                                    <td>Magnetic coating on spinning rigid platters</td>
-                                </tr>
-                                <li>Performance Speed</td>
-                                <td>Very High (Up to 7000+ MB/s)</td>
-                                <td>Moderate (Typically 100-200 MB/s)</td>
+                                    <td><strong>Serial Port</strong></td>
+                                    <td>Slower communication port interface that transmits only $1\text{ bit}$ at a time.</td>
                                 </tr>
                                 <tr>
-                                    <td>Mechanical Shock Risk</td>
-                                    <td>Zero; no moving internal components</td>
-                                    <td>High; vulnerable to head crashes if dropped</td>
+                                    <td><strong>Parallel Port</strong></td>
+                                    <td>Uses a $25\text{-pin}$ connection layout to transmit multiple data bits at the same time; historically used for old printers.</td>
                                 </tr>
                                 <tr>
-                                    <td>Acoustic Noise / Heat</td>
-                                    <td>Completely silent; runs cool</td>
-                                    <td>Audible spinning hum; generates heat</td>
+                                    <td><strong>PS/2 Port</strong></td>
+                                    <td>Dedicated round mini-DIN pins for keyboard (purple) and mouse (green). Requires a system reboot if unplugged.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VGA Port</strong></td>
+                                    <td>Uses $15\text{ pins}$ to carry analog video-only signals to monitors.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FireWire</strong></td>
+                                    <td>High-speed data transfer interface developed primarily by Apple.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ethernet Port</strong></td>
+                                    <td>Standard port interface used for stable, high-speed wired network connections.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Audio Jack</strong></td>
+                                    <td>Standard $3.5\text{mm}$ port used to output audio to headphones and speakers.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>USB Port</strong></td>
+                                    <td>Universal Serial Bus. Plug-and-play port for external peripherals like mice, keyboards, and flash storage drives.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>HDMI</strong></td>
+                                    <td>High-Definition Multimedia Interface. Transmits high-definition uncompressed digital audio and video signals (supporting $4\text{K}/8\text{K}$) over a single cable.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DisplayPort</strong></td>
+                                    <td>A high-performance visual display interface that operates faster than HDMI and naturally supports multi-monitor daisy-chaining.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Thunderbolt</strong></td>
+                                    <td>Ultra-high-speed hardware interface that uses the physical Type-C connector shape and is identified by a distinct lightning bolt symbol.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
-                    <h3>Optical Formats & Cloud Networks</h3>
-                    <ul>
-                        <li><strong>Compact Disc (CD):</strong> Uses a 780nm infrared laser; standard storage capacity is around 700 MB.</li>
-                        <li><strong>Digital Versatile Disc (DVD):</strong> Uses a 650nm red laser with tighter data tracks, bumping capacity to 4.7 GB (single layer) or 8.5 GB (dual layer).</li>
-                        <li><strong>Blu-ray Disc (BD):</strong> Uses a short-wavelength 405nm blue-violet laser, packing data tightly to store 25 GB to 50 GB.</li>
-                        <li><strong>Cloud Storage:</strong> Off-site data storage hosted on remote server clusters. It allows you to access files from anywhere over the internet while keeping data safe with redundant backups.</li>
-                    </ul>
-
-                    <h3>Physical Communication Interfaces</h3>
-                    <ul>
-                        <li><strong>Legacy Interfaces:</strong> Includes Serial RS-232 ports for older mice, Parallel Centronics ports for vintage printers, and PS/2 connectors for older keyboards.</li>
-                        <li><strong>Modern Universal Serial Bus (USB):</strong>
-                            <ul>
-                                <li>USB 2.0 (High Speed): Max speed of 480 Mbps.</li>
-                                <li>USB 3.0 / 3.1 Gen 1 (SuperSpeed): Max speed of 5 Gbps.</li>
-                                <li>USB 4: Built on the Thunderbolt protocol, capable of speeds up to 40 Gbps.</li>
-                                <li>USB Type-C: A reversible connector that supports multiple protocols, high-speed data transmission, and power delivery.</li>
-                            </ul>
-                        </li>
-                        <li><strong>High-Definition Multimedia Interface (HDMI):</strong> A compact interface that carries uncompressed digital audio and video to monitors and TVs.</li>
-                        <li><strong>DisplayPort:</strong> A high-performance digital interface that supports high resolutions and refresh rates, featuring a secure locking connector.</li>
-                        <li><strong>Thunderbolt (Intel/Apple):</strong> A high-speed hardware interface that combines PCIe and DisplayPort signals into one cable, delivering blistering data and power delivery speeds.</li>
-                    </ul>
                 </section>
 
                 <section id="encoding">
@@ -706,36 +752,70 @@
                     
                     <h3>Radix Bases Matrix</h3>
                     <ul>
-                        <li><strong>Decimal System (Base 10):</strong> Uses digits 0–9. Standard base for human calculations.</li>
-                        <li><strong>Binary System (Base 2):</strong> Uses bits 0 and 1. The native language of digital computing hardware.</li>
-                        <li><strong>Octal System (Base 8):</strong> Uses digits 0–7. Grouped in 3-bit binary segments.</li>
-                        <li><strong>Hexadecimal System (Base 16):</strong> Uses digits 0–9 and letters A–F (where A=10, F=15). Grouped in 4-bit binary segments to make code easier to read.</li>
+                        <li><strong>Decimal System (Base 10):</strong> Uses digits $0-9$.</li>
+                        <li><strong>Binary System (Base 2):</strong> Uses bits $0$ and $1$.</li>
+                        <li><strong>Octal System (Base 8):</strong> Uses digits $0-7$.</li>
+                        <li><strong>Hexadecimal System (Base 16):</strong> Uses digits $0-9$ and letters $A-F$ ($A=10, B=11, C=12, D=13, E=14, F=15$).</li>
                     </ul>
 
-                    <h3>Binary Math Standards</h3>
-                    <div class="grid-2">
-                        <div class="info-card">
-                            <strong>Addition Logic:</strong><br>
-                            0 + 0 = 0<br>
-                            0 + 1 = 1<br>
-                            1 + 1 = 10 (Output 0, Carry 1)<br>
-                            1 + 1 + 1 = 11 (Output 1, Carry 1)
-                        </div>
-                        <div class="info-card">
-                            <strong>Subtraction (Direct Borrow):</strong><br>
-                            0 - 0 = 0<br>
-                            1 - 0 = 1<br>
-                            1 - 1 = 0<br>
-                            0 - 1 = 1 (Requires borrowing a 1 from the next position left)
-                        </div>
+                    <h3>Conversion Work Examples</h3>
+                    <div class="info-card" style="margin-bottom:16px;">
+                        <strong>Decimal to Binary Conversion ($25_{10}$):</strong>
+                        <p>Divide by 2 repeatedly and read the remainders from bottom to top:</p>
+                        <p>$25 \div 2 = 12 \text{ with Remainder } \mathbf{1}$</p>
+                        <p>$12 \div 2 = 6 \text{ with Remainder } \mathbf{0}$</p>
+                        <p>$6 \div 2 = 3 \text{ with Remainder } \mathbf{0}$</p>
+                        <p>$3 \div 2 = 1 \text{ with Remainder } \mathbf{1}$</p>
+                        <p>$1 \div 2 = 0 \text{ with Remainder } \mathbf{1}$</p>
+                        <p>Resulting Binary Sequence: $\mathbf{11001_2}$</p>
                     </div>
 
-                    <h3>Character Mapping Specifications</h3>
+                    <div class="info-card" style="margin-bottom:16px;">
+                        <strong>Binary to Decimal Conversion ($11001_2$):</strong>
+                        <p>Multiply each bit position by its corresponding power of 2:</p>
+                        <p>$(1 \times 2^4) + (1 \times 2^3) + (0 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)$</p>
+                        <p>$= 16 + 8 + 0 + 0 + 1 = \mathbf{25_{10}}$</p>
+                    </div>
+
+                    <h3>Binary Shortcut Mechanics</h3>
                     <ul>
-                        <li><strong>ASCII (American Standard Code for Information Interchange):</strong> A 7-bit encoding standard that maps 128 unique characters, covering basic English letters, numbers, and control codes. An extended 8-bit version expands this to 256 characters.</li>
-                        <li><strong>EBCDIC (Extended Binary Coded Decimal Interchange Code):</strong> An 8-bit character encoding system created by IBM, used primarily on legacy mainframe systems.</li>
-                        <li><strong>Unicode:</strong> A universal encoding standard designed to support all written languages. It can scale up to 32 bits per character (using formats like UTF-8, UTF-16, and UTF-32), allowing it to represent millions of unique characters, symbols, and emojis globally.</li>
+                        <li><strong>Binary to Octal:</strong> Group binary bits into clusters of three starting from the right-hand side, then write out the decimal value for each cluster (e.g., $101110_2 \rightarrow \underbrace{101}_{5} / \underbrace{110}_{6} \rightarrow \mathbf{56_8}$).</li>
+                        <li><strong>Binary to Hexadecimal:</strong> Group binary bits into clusters of four starting from the right-hand side, using the $8-4-2-1$ positional layout to find the character (e.g., $10111100_2 \rightarrow \underbrace{1011}_{11 \rightarrow B} / \underbrace{1100}_{12 \rightarrow C} \rightarrow \mathbf{BC_{16}}$).</li>
                     </ul>
+
+                    <h3>Character Encoding Systems</h3>
+                    <ul>
+                        <li><strong>ASCII:</strong> A $7\text{-bit}$ character encoding scheme that maps exactly $128$ characters, covering standard English letters, numbers, and basic punctuation marks.</li>
+                        <li><strong>EBCDIC:</strong> An $8\text{-bit}$ character encoding standard created by IBM that supports up to $256$ characters; used primarily within legacy corporate mainframe environments.</li>
+                        <li><strong>Unicode:</strong> A universal character mapping system engineered to support all international written languages and modern emojis. It maps over $149,000$ distinct characters using variable lengths (such as UTF-8 and UTF-16) and identifies each character by an explicit hexadecimal value called a <strong>Code Point</strong>.</li>
+                    </ul>
+                </section>
+
+                <section id="logic">
+                    <h2>Algorithms, Flowcharts & Control Structures</h2>
+                    
+                    <h3>Logic Definitions</h3>
+                    <ul>
+                        <li><strong>Algorithm:</strong> A clear, step-by-step procedure designed to solve a specific problem.</li>
+                        <li><strong>Pseudocode:</strong> A detailed yet readable plain-text description of an algorithm that mimics programming logic without strict language syntax.</li>
+                    </ul>
+
+                    <h3>Flowchart Visual Standards</h3>
+                    <p>Flowcharts map the logical execution path of an algorithm using standard geometric shapes:</p>
+                    <ul>
+                        <li><strong>Oval:</strong> Indicates the Start or End point of a program.</li>
+                        <li><strong>Parallelogram:</strong> Represents Input or Output operations.</li>
+                        <li><strong>Rectangle:</strong> Denotes arithmetic processing calculations or internal data manipulation.</li>
+                        <li><strong>Diamond:</strong> Specifies a Decision point or conditional evaluation step.</li>
+                        <li><strong>Arrows:</strong> Indicate the explicit direction of the process flow.</li>
+                    </ul>
+
+                    <h3>Structural Control Patterns</h3>
+                    <ol>
+                        <li><strong>Sequence:</strong> Instructions execute sequentially one after another, moving from top to bottom.</li>
+                        <li><strong>Selection:</strong> Checks a specific condition and branches along different paths based on the result.</li>
+                        <li><strong>Repetition (Looping):</strong> Repeatedly executes a block of code as long as a specified condition remains true.</li>
+                    </ol>
                 </section>
 
                 <section id="quiz">
@@ -765,8 +845,10 @@
                         &bull; 5 System Generations<br><br>
                         &bull; Micro vs Mainframe<br><br>
                         &bull; RAM/ROM/Cache Tiers<br><br>
-                        &bull; Binary Radix Math<br><br>
-                        &bull; Character Encodings
+                        &bull; Radix Conversions<br><br>
+                        &bull; Binary Math Shortcuts<br><br>
+                        &bull; Character Encodings<br><br>
+                        &bull; Flowchart Shapes
                     </p>
                 </div>
             </aside>
@@ -774,7 +856,6 @@
     </div>
 
     <script>
-        // Data containing all 100 questions requested by the user
         const questionsData = [
             { q: "What are the four core components of the informational processing cycle?", o: ["Input, Process, Output, Storage", "Read, Write, Save, Delete", "Boot, Load, Run, Close", "Arithmetic, Logic, Register, Bus"], a: 0 },
             { q: "Which of the following describes the computer's ability to work continuously without fatigue?", o: ["Speed", "Diligence", "Versatility", "Accuracy"], a: 1 },
@@ -945,7 +1026,22 @@
             });
         }
 
-        // Keep navigation links styled based on scroll tracking
+        // Mobile Menu Toggle logic
+        const toggleBtn = document.getElementById('menu-toggle-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        // Close menu drawer upon option selection on mobile devices
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('mobile-open');
+            });
+        });
+
+        // Highlight Active Section on scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
